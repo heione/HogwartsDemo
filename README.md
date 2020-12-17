@@ -17,3 +17,33 @@
 -->pythoncode/calculator.py  计算器程序
 
 -->test_calc.py  对计算器进行测试
+
+####作业2：
+
+练习1
+
+使用【测试数据的数据驱动】的方法完成加减乘除测试
+
+使用fixture替换setup和teardown
+
+将fixture方法放在conftest.py里面，设置scope=module
+
+修改运行规则，pytest.ini文件
+
+练习2(选做)
+
+控制用例的执行顺序，如：加减乘除
+
+结合allure生成测试结果报告（未完成）
+
+答：
+
+-->pythoncode/calculator.py  计算器程序
+
+-->test_calc.py  对计算器进行测试
+
+-->data.yml  数据文件
+
+-->conftest.py  fixture文件
+
+-->pytest.ini  pytest配置文件
