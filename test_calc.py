@@ -1,6 +1,8 @@
+import allure
 import pytest
-from pythoncode.calculator import Calculator
 import yaml
+
+from HogwartsDemo.pythoncode.calculator import Calculator
 
 
 def get_yaml_data(file="./data.yml"):
@@ -17,7 +19,7 @@ def get_yaml_data(file="./data.yml"):
 yd = get_yaml_data()
 mf = Calculator()
 
-
+@allure.feature("计算器模块")
 class TestCalc:
     # def setup_class(self):
     #     self.calc = Calculator()
@@ -32,31 +34,35 @@ class TestCalc:
     # def teardown_method(self):
     #     print("方法结束(%s)------开始计算" % "teardown_method")
 
-    @pytest.mark.run(order=4)
+    #@pytest.mark.run(order=4)
     @pytest.mark.add
     @pytest.mark.parametrize("a,b,expect", yd["add"])
+    @allure.story("加法")
     def test_add(self, a, b, expect):
         """加法测试"""
         assert expect == mf.add(a, b)
 
-    @pytest.mark.run(order=3)
+    #@pytest.mark.run(order=3)
     @pytest.mark.sub
     @pytest.mark.parametrize("a,b,expect", yd["sub"])
+    @allure.story("减法")
     def test_sub(self, a, b, expect):
         """减法测试"""
         assert expect == mf.sub(a, b)
 
-    @pytest.mark.run(order=2)
+    #@pytest.mark.run(order=2)
     @pytest.mark.div
     @pytest.mark.parametrize("a, b, expect", yd["div"])
+    @allure.story("除法")
     def test_div(self, a, b, expect):
         """除法测试"""
         assert expect == mf.div(a, b)
 
-    @pytest.mark.run(order=1)
+    #@pytest.mark.run(order=1)
     @pytest.mark.mul
     @pytest.mark.parametrize("a", yd["mul"][0])
     @pytest.mark.parametrize("b", yd["mul"][1])
+    @allure.story("乘法")
     def test_mul(self, a, b):
         """乘法测试"""
         expect = a * b

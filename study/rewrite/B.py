@@ -1,9 +1,8 @@
-from study.rewrite.A import A
+from HogwartsDemo.study.rewrite import warp
+from HogwartsDemo.study.rewrite.A import A
 
 
 class B(A):
+
     def run_t(self):
-        print(f"我是子类的run，重写了父类")
-
-
-B().run_t()
+        print(f"我是B，继承了A")
